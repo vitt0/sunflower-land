@@ -13,19 +13,19 @@ import {
 } from "./types";
 
 const generalTerms: Record<GeneralTerms, string> = {
-  featured: "Featured",
-  connecting: "Connecting",
-  loading: "Loading",
-  saving: "Saving",
-  continue: "Continue",
-  readMore: "Read more",
-  close: "Close",
-  noThanks: "No thanks",
-  guide: "Guide",
-  task: "Task",
-  sell: "Sell",
-  buy: "Buy",
-  delivery: "Delivery",
+  featured: "精選",
+  connecting: "連接中",
+  loading: "載入中",
+  saving: "存檔中",
+  continue: "繼續",
+  readMore: "閱讀更多",
+  close: "關閉",
+  noThanks: "不，謝謝",
+  guide: "指南",
+  task: "任務",
+  sell: "出售",
+  buy: "購買",
+  delivery: "送貨",
 };
 
 const welcomeTerms: Record<WelcomeTerms, string> = {
