@@ -25,6 +25,8 @@ import { DepletedTree } from "./components/DepletedTree";
 import { DepletingTree } from "./components/DepletingTree";
 import { RecoveredTree } from "./components/RecoveredTree";
 import { gameAnalytics } from "lib/gameAnalytics";
+import { getBumpkinLevel } from "features/game/lib/level";
+import { getBumpkinLevelRequiredForNode } from "features/game/expansion/lib/expansionNodes";
 
 const HITS = 3;
 const tool = "Axe";
@@ -55,11 +57,15 @@ const compareCollectibles = (prev: Collectibles, next: Collectibles) =>
   isCollectibleBuilt("Foreman Beaver", prev) ===
   isCollectibleBuilt("Foreman Beaver", next);
 
+const _bumpkinLevel = (state: MachineState) =>
+  getBumpkinLevel(state.context.state.bumpkin?.experience ?? 0);
+
 interface Props {
   id: string;
+  index: number;
 }
 
-export const Tree: React.FC<Props> = ({ id }) => {
+export const Tree: React.FC<Props> = ({ id, index }) => {
   const { gameService, shortcutItem } = useContext(Context);
 
   const [touchCount, setTouchCount] = useState(0);
@@ -108,9 +114,14 @@ export const Tree: React.FC<Props> = ({ id }) => {
   const timeLeft = getTimeLeft(resource.wood.choppedAt, TREE_RECOVERY_TIME);
   const chopped = !canChop(resource);
 
+  const bumpkinLevelRequired = getBumpkinLevelRequiredForNode(index, "Tree");
+  const bumpkinLevel = useSelector(gameService, _bumpkinLevel);
+  const bumpkinTooLow = bumpkinLevel < bumpkinLevelRequired;
+
   useUiRefresher({ active: chopped });
 
   const shake = () => {
+    if (bumpkinTooLow) return;
     if (!hasTool) return;
 
     setTouchCount((count) => count + 1);
@@ -165,6 +176,7 @@ export const Tree: React.FC<Props> = ({ id }) => {
       {!chopped && (
         <div ref={divRef} className="absolute w-full h-full" onClick={shake}>
           <RecoveredTree
+            bumpkinLevelRequired={bumpkinLevelRequired}
             hasTool={hasTool}
             touchCount={touchCount}
             showHelper={treesChopped < 3 && treesChopped + 1 === Number(id)}
@@ -180,6 +192,7 @@ export const Tree: React.FC<Props> = ({ id }) => {
 
       {/* Chest reward */}
       <ChestReward
+        collectedItem={"Wood"}
         reward={reward}
         onCollected={onCollectChest}
         onOpen={() =>
