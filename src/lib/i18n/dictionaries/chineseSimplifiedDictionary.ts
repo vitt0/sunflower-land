@@ -37,6 +37,7 @@ const generalTerms: Record<GeneralTerms, string> = {
   cancel: "Cancel",
   for: "for",
 };
+
 const confirmationTerms: Record<ConfirmationTerms, string> = {
   "confirmation.sellCrops": "Are you sure you want to",
 };
