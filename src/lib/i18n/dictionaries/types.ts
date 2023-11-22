@@ -1,26 +1,3 @@
-export type TranslationKeys =
-  | WelcomeTerms
-  | GeneralTerms
-  | GameTerms
-  | RulesTerms
-  | SeasonBannerOffer
-  | Intro
-  | AchievementsDialog
-  | GuideTerms
-  | Conversations
-  | HenHouseTerms
-  | ShopItems
-  | RetreatTerms
-  | RewardTerms
-  | ConfirmationTerms
-  | ErrorTerms
-  | WarningTerms
-  | TransactionTerms
-  | Onboarding
-  | Questions
-  | Statements
-  | BumpkinTrade;
-
 export type GeneralTerms =
   | "2x.sale"
   | "achievements"
@@ -57,6 +34,7 @@ export type GeneralTerms =
   | "fruits"
   | "gotIt"
   | "guide"
+  | "info"
   | "item"
   | "lastUpdated"
   | "letsGo"
@@ -94,6 +72,7 @@ export type GeneralTerms =
   | "syncing"
   | "task"
   | "total"
+  | "trades"
   | "tryAgain"
   | "verify"
   | "version"
@@ -440,6 +419,7 @@ export type BumpkinPartRequirements =
   | "part.pants"
   | "part.background";
 
+
 export type RetreatTerms =
   | "retreatTerms.introTravel.one"
   | "retreatTerms.introTravel.two"
@@ -450,10 +430,63 @@ export type RetreatTerms =
   | "retreatTerms.resale.two"
   | "retreatTerms.resale.three";
 
+export type CollectiblesDescription =
+  // Seeds
+  | "seed.sunflower"
+  | "seed.potato"
+  | "seed.pumpkin"
+  | "seed.carrot"
+  | "seed.cabbage"
+  | "seed.beetroot"
+  | "seed.cauliflower"
+  | "seed.parsnip"
+  | "seed.radish"
+  | "seed.wheat"
+  | "seed.kale"
+  | "seed.apple"
+  | "seed.blueberry"
+  | "seed.orange"
+  | "seed.eggplant"
+  | "seed.corn"
+  | "seed.banana"
+
+  // Crops
+  | "crop.sunflower"
+  | "crop.potato"
+  | "crop.pumpkin"
+  | "crop.cabbage"
+  | "crop.beetroot"
+  | "crop.cauliflower"
+  | "crop.parsnip"
+  | "crop.radish"
+  | "crop.wheat"
+  | "crop.kale"
+  | "crop.eggplant"
+  | "crop.corn"
+  | "fruit.apple"
+  | "fruit.blueberry"
+  | "fruit.orange"
+  | "fruit.banana"
+
+  // Tools
+  | "tool.axe"
+  | "tool.pickaxe"
+  | "tool.stone.pickaxe"
+  | "tool.iron.pickaxe"
+  | "tool.hammer"
+  | "tool.rod"
+  | "tool.rusty.shovel"
+  | "tool.shovel"
+  | "tool.sand.shovel"
+  | "tool.sand.drill";
+
+// Collectibles
+
 export type TranslationKeys =
   | AchievementsDialog
   | BumpkinPartRequirements
   | BumpkinTrade
+  | CollectiblesDescription
   | ConfirmationTerms
   | Conversations
   | ErrorTerms
