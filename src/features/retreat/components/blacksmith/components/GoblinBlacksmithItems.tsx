@@ -120,7 +120,7 @@ export const GoblinBlacksmithItems: React.FC<Props> = ({ onClose }) => {
 
     if (inventory[selectedName] && !ALLOW_MULTIPLE_MINTS.includes(selectedName))
       return <span className="text-xxs text-center my-1">{t("minted")}</span>;
-    
+
     return (
       <Button disabled={disabled} onClick={craft}>
         {t("craft")}

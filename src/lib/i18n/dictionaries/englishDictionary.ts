@@ -66,7 +66,7 @@ const generalTerms: Record<GeneralTerms, string> = {
   maintenance: "Maintenance",
   mint: "Mint",
   minting: "minting",
-  minted:"Already minted!",
+  minted: "Already minted!",
   nextSkillPtLvl: "Next skill point: level",
   noThanks: "No thanks",
   ok: "OK",
