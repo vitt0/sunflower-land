@@ -18,7 +18,8 @@ export type TranslationKeys =
   | Onboarding
   | Questions
   | Statements
-  | BumpkinTrade;
+  | BumpkinTrade
+  | RetreatTerms;
 
 export type GeneralTerms =
   | "2x.sale"
@@ -35,6 +36,7 @@ export type GeneralTerms =
   | "claimSkill"
   | "clear"
   | "close"
+  | "craft"
   | "comingSoon"
   | "congrats"
   | "connected"
@@ -429,3 +431,13 @@ export type BumpkinTrade =
   | "bumpkinTrade.noTradeLs"
   | "bumpkinTrade.sell"
   | "bumpkinTrade.list";
+
+export type RetreatTerms =
+  | "retreatTerms.introTravel.one"
+  | "retreatTerms.introTravel.two"
+  | "retreatTerms.introTravel.three"
+  | "retreatTerms.introTravel.four"  
+  | "retreatTerms.resale.title"
+  | "retreatTerms.resale.one"
+  | "retreatTerms.resale.two"
+  | "retreatTerms.resale.three";

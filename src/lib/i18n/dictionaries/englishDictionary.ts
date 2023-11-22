@@ -20,6 +20,7 @@ import {
   Questions,
   Statements,
   GameTerms,
+  RetreatTerms,
 } from "./types";
 
 const generalTerms: Record<GeneralTerms, string> = {
@@ -35,6 +36,7 @@ const generalTerms: Record<GeneralTerms, string> = {
   claimSkill: "Claim skill",
   clear: "Clear",
   close: "Close",
+  craft: "Craft",
   comingSoon: "Coming soon",
   congrats: "Congratulations!",
   connected: "Connected",
@@ -64,6 +66,7 @@ const generalTerms: Record<GeneralTerms, string> = {
   maintenance: "Maintenance",
   mint: "Mint",
   minting: "minting",
+  minted:"Already minted!",
   nextSkillPtLvl: "Next skill point: level",
   noThanks: "No thanks",
   ok: "OK",
@@ -583,6 +586,17 @@ const bumpkinTrade: Record<BumpkinTrade, string> = {
   "bumpkinTrade.list": "List trade",
 };
 
+const retreatTerms: Record<RetreatTerms, string> = {
+  "retreatTerms.introTravel.one": "Hey Traveller! Ready to explore?",
+  "retreatTerms.introTravel.two": "Sunflower Land is filled with exciting islands where you can complete deliveries, craft rare NFTs and even dig for treasure!",
+  "retreatTerms.introTravel.three": "Different locations bring different opportunities to spend your hard earned resources.",
+  "retreatTerms.introTravel.four": "At any time click the travel button to return home.",
+  "retreatTerms.resale.title": "Looking for rare items?",
+  "retreatTerms.resale.one": "Players can trade special items they crafted in-game.",
+  "retreatTerms.resale.two": "You can purchase these on secondary marketplaces like OpenSea.",
+  "retreatTerms.resale.three": "View items on OpenSea",
+};
+
 export const ENGLISH_TERMS: Record<TranslationKeys, string> = {
   ...generalTerms,
   ...gameTerms,
@@ -605,4 +619,5 @@ export const ENGLISH_TERMS: Record<TranslationKeys, string> = {
   ...statements,
   ...bumpkinTrade,
   ...gameTerms,
+  ...retreatTerms,
 };
