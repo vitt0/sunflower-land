@@ -47,7 +47,7 @@ export const BoundaryError: React.FC<BoundaryErrorProps> = ({
             <img src={lightningAnimation} className="h-20" />
           </div>
           <div className="space-y-3 text-sm mb-3">
-            <p>Please try again or check your Polygon RPC settings.</p>
+            <p>{t("error.polygonRPC")}</p>
           </div>
         </div>
         {onAcknowledge && <Button onClick={onAcknowledge}>Refresh</Button>}
@@ -63,45 +63,54 @@ export const BoundaryError: React.FC<BoundaryErrorProps> = ({
           <img src={lightningAnimation} className="h-20" />
         </div>
         <div className="space-y-3 text-sm mb-3">
-          <p>It looks like we were unable to complete this request.</p>
-          <p>It may be a simple connection issue.</p>
-          <p>You can click refresh to try again.</p>
+          <p>{t("error.connection.one")}</p>
+          <p>{t("error.connection.two")}</p>
+          <p>{t("error.connection.three")}</p>
+          <p>{t("error.connection.four")}</p>
           <p>
-            If the issue remains, you can reach out for help by either
-            contacting our{" "}
             <a
               className="underline"
               href="https://sunflowerland.freshdesk.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              support team{" "}
+              {t("support.team")}{" "}
             </a>
-            or jumping over to our{" "}
             <a
               className="underline"
               target="_blank"
               href="https://discord.gg/sunflowerland"
               rel="noreferrer"
             >
-              discord
-            </a>{" "}
-            and asking our community.
+              Discord
+            </a>
           </p>
         </div>
         <div className="flex flex-col w-full text-left mb-2 text-[12px] overflow-hidden">
-          {farmId && <p className="leading-3">Farm: {farmId}</p>}
+          {farmId && (
+            <p className="leading-3">
+              {t("farm")}: {farmId}
+            </p>
+          )}
           {error && (
-            <p className="leading-3 whitespace-nowrap">Error: {error}</p>
+            <p className="leading-3 whitespace-nowrap">
+              {t("error")}: {error}
+            </p>
           )}
           {transactionId && (
-            <p className="leading-3">Transaction ID: {transactionId}</p>
+            <p className="leading-3">
+              {t("transaction.id")}: {transactionId}
+            </p>
           )}
-          <p className="leading-3">Date: {date}</p>
-          <p className="leading-3">Version: {CONFIG.RELEASE_VERSION}</p>
+          <p className="leading-3">
+            {t("date")}: {date}
+          </p>
+          <p className="leading-3">
+            {t("version")}: {CONFIG.RELEASE_VERSION}
+          </p>
           {stack && showStackTrace && (
             <>
-              <p className="leading-3">Details:</p>
+              <p className="leading-3">{t("details")}:</p>
               <pre className="leading-3 whitespace-pre-wrap text-[10px]">{`${stack}`}</pre>
             </>
           )}
@@ -109,10 +118,10 @@ export const BoundaryError: React.FC<BoundaryErrorProps> = ({
       </div>
       {stack && !showStackTrace && (
         <Button onClick={() => setShowStackTrace(true)}>
-          Diagnostic Information
+          {t("error.diagnostic.info")}
         </Button>
       )}
-      {onAcknowledge && <Button onClick={onAcknowledge}>Refresh</Button>}
+      {onAcknowledge && <Button onClick={onAcknowledge}>{t("refresh")}</Button>}
     </>
   );
 };

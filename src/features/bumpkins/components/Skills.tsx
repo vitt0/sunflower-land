@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import { Panel } from "components/ui/Panel";
-import { Tab } from "components/ui/Tab";
 import {
   BumpkinSkill,
   BumpkinSkillTree,
@@ -18,6 +16,8 @@ import { Label } from "components/ui/Label";
 import { findLevelRequiredForNextSkillPoint } from "features/game/lib/level";
 import { PIXEL_SCALE } from "features/game/lib/constants";
 import { SUNNYSIDE } from "assets/sunnyside";
+import { useAppTranslation } from "lib/i18n/useAppTranslations";
+import { CloseButtonPanel } from "features/game/components/CloseablePanel";
 
 interface Props {
   onBack: () => void;
@@ -56,12 +56,11 @@ export const Skills: React.FC<Props> = ({ onBack, readonly }) => {
 
     onBack();
   };
-
+  const { t } = useAppTranslation();
   const { bumpkin } = state;
   const experience = bumpkin?.experience || 0;
 
   const availableSkillPoints = getAvailableBumpkinSkillPoints(bumpkin);
-
   const skillPointsInfo = () => {
     const nextLevelWithSkillPoint =
       findLevelRequiredForNextSkillPoint(experience);
@@ -69,11 +68,13 @@ export const Skills: React.FC<Props> = ({ onBack, readonly }) => {
     return (
       <div className="flex flex-wrap gap-1">
         {availableSkillPoints > 0 && (
-          <Label type="default">Skill Points: {availableSkillPoints}</Label>
+          <Label type="default">
+            {t("skillPts")} {availableSkillPoints}
+          </Label>
         )}
         {nextLevelWithSkillPoint && (
           <Label type="default" className="text-xxs px-1 whitespace-nowrap">
-            Next skill point: level {nextLevelWithSkillPoint}
+            {t("nextSkillPtLvl")} {nextLevelWithSkillPoint}
           </Label>
         )}
       </div>
@@ -121,32 +122,17 @@ export const Skills: React.FC<Props> = ({ onBack, readonly }) => {
 };
 
 export const SkillsModal: React.FC<Props> = ({ onBack, onClose, readonly }) => {
+  const [tab, setTab] = useState(0);
+
   return (
-    <Panel className="relative" hasTabs>
-      <div
-        className="absolute flex"
-        style={{
-          top: `${PIXEL_SCALE * 1}px`,
-          left: `${PIXEL_SCALE * 1}px`,
-          right: `${PIXEL_SCALE * 1}px`,
-        }}
-      >
-        <Tab isActive>
-          <img src={seedSpecialist} className="h-5 mr-2" />
-          <span className="text-sm">Skills</span>
-        </Tab>
-        <img
-          src={SUNNYSIDE.icons.close}
-          className="absolute cursor-pointer z-20"
-          onClick={onClose}
-          style={{
-            top: `${PIXEL_SCALE * 1}px`,
-            right: `${PIXEL_SCALE * 1}px`,
-            width: `${PIXEL_SCALE * 11}px`,
-          }}
-        />
-      </div>
+    <CloseButtonPanel
+      currentTab={tab}
+      setCurrentTab={setTab}
+      tabs={[{ icon: seedSpecialist, name: "Skills" }]}
+      onClose={onClose}
+    >
+      {/* @note: There is only one tab, no extra judgment is needed. */}
       <Skills onBack={onBack} onClose={onClose} readonly={readonly} />
-    </Panel>
+    </CloseButtonPanel>
   );
 };
