@@ -386,6 +386,8 @@ const errorTerms: Record<ErrorTerms, string> = {
 
 const warningTerms: Record<WarningTerms, string> = {
   "warning.noAxe": "No Axe Selected!",
+  "warning.chat.maxCharacters": "Max characters:",
+  "warning.chat.noSpecialCharacters": "No special characters",
 };
 
 const transactionTerms: Record<TransactionTerms, string> = {

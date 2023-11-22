@@ -272,7 +272,9 @@ export type ErrorTerms =
   | "error.wentWrong";
 
   export type WarningTerms =
-  | "warning.noAxe";
+  | "warning.noAxe"
+  | "warning.chat.maxCharacters"
+  | "warning.chat.noSpecialCharacters";
   
 export type TransactionTerms =
   | "transaction.t&c.one"
