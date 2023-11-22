@@ -10,6 +10,7 @@ export type TranslationKeys =
   | Conversations
   | HenHouseTerms
   | ShopItems
+  | RetreatTerms
   | RewardTerms
   | ConfirmationTerms
   | ErrorTerms
@@ -18,8 +19,7 @@ export type TranslationKeys =
   | Onboarding
   | Questions
   | Statements
-  | BumpkinTrade
-  | RetreatTerms;
+  | BumpkinTrade;
 
 export type GeneralTerms =
   | "2x.sale"
@@ -316,7 +316,7 @@ export type ErrorTerms =
   | "error.diagnostic.info"
   | "error.Web3NotFound";
 
-  export type WarningTerms =
+export type WarningTerms =
   | "warning.noAxe"
   | "warning.chat.maxCharacters"
   | "warning.chat.noSpecialCharacters";
@@ -432,6 +432,14 @@ export type BumpkinTrade =
   | "bumpkinTrade.sell"
   | "bumpkinTrade.list";
 
+export type BumpkinPartRequirements =
+  | "part.hair"
+  | "part.body"
+  | "part.shoes"
+  | "part.shirt"
+  | "part.pants"
+  | "part.background";
+
 export type RetreatTerms =
   | "retreatTerms.introTravel.one"
   | "retreatTerms.introTravel.two"
@@ -441,3 +449,27 @@ export type RetreatTerms =
   | "retreatTerms.resale.one"
   | "retreatTerms.resale.two"
   | "retreatTerms.resale.three";
+
+export type TranslationKeys =
+  | AchievementsDialog
+  | BumpkinPartRequirements
+  | BumpkinTrade
+  | ConfirmationTerms
+  | Conversations
+  | ErrorTerms
+  | GameTerms
+  | GeneralTerms
+  | GuideTerms
+  | HenHouseTerms
+  | Intro
+  | Onboarding
+  | Questions
+  | RetreatTerms
+  | RewardTerms
+  | RulesTerms
+  | SeasonBannerOffer
+  | ShopItems
+  | Statements
+  | TransactionTerms
+  | WarningTerms
+  | WelcomeTerms;
