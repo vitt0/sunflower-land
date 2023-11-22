@@ -13,6 +13,7 @@ export type TranslationKeys =
   | RewardTerms
   | ConfirmationTerms
   | ErrorTerms
+  | WarningTerms
   | TransactionTerms
   | Onboarding
   | Questions
@@ -270,6 +271,9 @@ export type ErrorTerms =
   | "error.blocked.betaTestersOnly"
   | "error.wentWrong";
 
+  export type WarningTerms =
+  | "warning.noAxe";
+  
 export type TransactionTerms =
   | "transaction.t&c.one"
   | "transaction.t&c.two"
